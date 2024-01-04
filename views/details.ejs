@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title> <%= title %> </title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+
+   
+        <div class="container2">
+            <h1><%= pizza.name %></h1>
+            <h3>Created by <%= pizza.email %></h3>
+            <p class="date"><%= pizza.createdAt %></p>
+            <h2 > Ingredients:</h2>
+            <span><%= pizza.ingredient1%> , <%= pizza.ingredient2 %> , <%= pizza.ingredient3 %></span>
+            <a class="deletebtn" href="" data-id="<%= pizza._id %>" >Delete</a>
+        </div>
+
+  
+  
+
+
+
+    <%- include('partials/footer.ejs') %>
+
+
+    <script>
+        const deletebtn = document.querySelector('a.deletebtn');
+
+        deletebtn.addEventListener('click' , (e) => {
+            const endpoint = `/orders/${deletebtn.dataset.id}`;
+
+            fetch(endpoint , {
+                method : 'DELETE'
+            })
+            .then((response) => 
+                response.json()
+            )
+            .then((data) => 
+                window.location.href = data.redirect
+               
+            )
+            .catch(err => {
+                console.log(err)
+            })
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

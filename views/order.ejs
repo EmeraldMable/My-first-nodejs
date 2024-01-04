@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Make your order</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+
+    <h1 class="addpizza">As You Wish!</h1>
+
+    <form class="addform" action="/orders" method="post">
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" placeholder="johnstar@gmail.com">
+
+        <label for="pizzaname">Name Your Pizza</label>
+        <input type="text" name="name" id="pizzaname" placeholder="Juicy Pie">
+
+        <label for="ingre">Ingredients</label>
+        <input type="text" name="ingredient1" id="ingre" placeholder="mushroom">
+
+        
+        <input type="text" name="ingredient2" id="ingre" placeholder="cheese">
+
+        
+        <input type="text" name="ingredient3" id="ingre" placeholder="hum">
+
+       
+        <input class="btn" type="submit" name="submitbtn" value="Submit">
+    </form>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Home Page </title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    
+    <h1 class="title">Pizza Orders</h1>
+    
+
+    <div class="container">
+        <% if(pizzas.length >0) { %>
+            <% pizzas.forEach(pizza => { %>
+
+                <div class="orders">
+                    <div class="content">
+                      
+                        <img class="pizza_img" src="image/pizza.jpg" alt="pizza pic">
+                       
+                       
+                        <div class="infos">
+                            <h1 class="name">
+                                <%= pizza.name %>
+                            </h1>
+                            <ul class="ingre">
+                                <li><%= pizza.ingredient1 %></li>
+                                <li><%= pizza.ingredient2 %></li>
+                                <li><%= pizza.ingredient3 %></li>
+                            </ul>
+                         </div>
+                    </div>
+            
+                    <div class="details">
+                        <a href="/orders/<%= pizza._id %>"> More Info</a>
+                    </div> 
+                 </div>
+
+
+          <%  })%>
+      <%  } %>
+       
+</div>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>
